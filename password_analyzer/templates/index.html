@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Password Analyzer 🔐</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h2>Password Strength Analyzer 🔐</h2>
+
+    <form method="POST">
+        <input type="password" name="password" placeholder="Enter password">
+        <button type="submit">Analyze</button>
+    </form>
+
+    <form method="POST">
+        <button name="generate">Generate Strong Password</button>
+    </form>
+
+    {% if generated %}
+        <p><b>Generated Password:</b> {{ generated }}</p>
+    {% endif %}
+
+    {% if strength %}
+        <h3>Strength: {{ strength }}</h3>
+        <p>Score: {{ score }}/100</p>
+
+        <div class="bar">
+            <div class="fill {{ strength }}"></div>
+        </div>
+
+        <p><b>Estimated Crack Time:</b> {{ crack_time }}</p>
+
+        <ul>
+            {% for item in feedback %}
+                <li>{{ item }}</li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+</div>
+
+</body>
+</html>
