@@ -99,9 +99,5 @@ def index():
 import os
 
 if __name__ == "__main__":
-<<<<<<< HEAD:password_analyzer/app.py
     port = int(os.environ.get("PORT", 10000))
     app.run(host="0.0.0.0", port=port)
-=======
-    app.run(debug=True)
->>>>>>> 2dfd2b33f894e1b5c83bff73db3c912c015f34e4:app.py
